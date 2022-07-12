@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   patch "/articles/:id", to: "articles#update"
   get "/articles/:id", to: "articles#show"
   get "/articles/delete", to: "articles#Delete"
-  resources :articles 
+  resources :articles do
+    resources :comments
+  end
 end
