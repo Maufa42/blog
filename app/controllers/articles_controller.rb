@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(title:"...",body: "...")
+    @article = Article.new(article_params)
 
     if@article.save
       redirect_to @article
@@ -26,10 +26,16 @@ class ArticlesController < ApplicationController
   def update
     @article =Article.find(params[:id])
     if @article.update(article_params)
-      redirect_to "/articles"
+      redirect_to @article
     else
       render :edit,status: :unprocessable_entity
     end
+  end
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+
+    redirect_to root_path, status: :see_other
   end
 
   private

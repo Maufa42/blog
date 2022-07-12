@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   get "/articles/:id/edit", to: "articles#edit"
   patch "/articles/:id", to: "articles#update"
   get "/articles/:id", to: "articles#show"
-  
-  # resources :articles 
+  get "/articles/delete", to: "articles#Delete"
+  resources :articles 
 end
