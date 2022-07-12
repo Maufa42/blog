@@ -10,7 +10,7 @@
                     turbo_confirm: "Are you sure?"
                   } %></li>
 
-<li> <%= link_to "All Articles" ,"/"%></li>
+<li> <%= link_to "Back" ,"/"%></li>
 </ul>
 
 
@@ -24,7 +24,11 @@
 <strong>Comment:</strong>
 <%= comment.body%>
 </p>
+
+<p>
+<%= link_to "Delete comment","/articles/#{comment[:article_id]}/comments/#{comment[:id]}", data:{turbo_method: :delete, turbo_confirm: "Are u suresfdwefwearw?"}%>
 <%end%>
+</p>
 
 <h2>Add a Comment</h2>
 <%= form_with model: [@article, @article.comments.build] do |form |%>
