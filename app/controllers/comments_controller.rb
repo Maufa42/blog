@@ -8,11 +8,12 @@ class CommentsController < ApplicationController
   end
 
  def destroy
-  @article = Article.find(params[:article_id])
-  @comment = @article.comments.find(params[:id])
+  # debugger
+  # @article = Article.find(params[:article_id])
+  @comment = Comment.find(params[:id])
   @comment.destroy
 
-  redirect_to "/"
+  redirect_to  article_path
  end
 
 
